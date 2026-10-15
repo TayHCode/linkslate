@@ -1,0 +1,36 @@
+{
+  "exclude": [],
+  "approvals": [],
+  "quickstart": [
+    {
+      "file": "README.md",
+      "line": 88,
+      "argv": [
+        "node",
+        "build.mjs"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "role": "tests",
+      "argv": [
+        "node",
+        "--test",
+        "test/"
+      ]
+    },
+    {
+      "role": "build",
+      "argv": [
+        "node",
+        "build.mjs",
+        "--out",
+        ".scratch/rc-out"
+      ]
+    }
+  ],
+  "verify_tools": [
+    "node"
+  ]
+}

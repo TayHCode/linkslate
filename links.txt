@@ -1,0 +1,14 @@
+# Your name, a short bio, then Label URL (the URL is the last word).
+# Optional: add a photo URL before the links, or choose a theme anywhere.
+# A header line ending in a URL becomes a link when it has text before it.
+Maya Chen
+Designer, weekend baker, and collector of small adventures.
+Based in Portland. Making useful things with a little warmth.
+theme: clean
+
+My design work https://example.com/maya
+Notes & little discoveries https://example.com/maya/notes
+Recent projects https://github.com/mayachen
+Photos from the trail https://example.com/maya/photos
+What I'm reading https://example.com/maya/books
+Say hello https://example.com/maya/contact

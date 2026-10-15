@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Make your own links page. Edit, preview, and download a site in one file.">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https: data:; frame-src about:; base-uri 'none'; form-action 'none'">
+<title>Make it yours · Linkslate</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#223c32;background:#f5f6f1;line-height:1.5;color-scheme:light}
+*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button,input,textarea,select{min-height:44px}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}button,input,textarea,select{border:1px solid #cbd5cb;border-radius:9px}input,textarea,select{padding:10px 12px;background:#fff;color:#223c32;max-width:100%;width:100%}textarea{resize:vertical}button{padding:10px 15px;background:#fff;color:#204d3c;font-weight:650}button:hover{background:#edf2e9}:focus-visible{outline:3px solid #204d3c;outline-offset:3px}a{color:#204d3c}.topbar{padding:18px 5vw;border-bottom:1px solid #dce2d7;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:22px;font-weight:750;letter-spacing:-.05em}.badge{font-size:12px;color:#506454}.workspace{max-width:1180px;margin:0 auto;padding:38px 24px 48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:48px}h1{font-size:36px;line-height:1.15;letter-spacing:-.04em;margin:4px 0 12px}h2{font-size:18px;margin:0}p{margin:0 0 18px}.intro{color:#526157;max-width:47ch}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:#526157;margin-bottom:10px}.panel{background:#fff;border:1px solid #dce2d7;border-radius:16px;padding:22px;margin-top:20px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}label{font-size:13px;font-weight:650;display:block;margin-bottom:6px}.field{margin-bottom:16px}.field:last-child{margin-bottom:0}.optional{font-weight:400;color:#5a675d;font-size:12px}.hint{font-size:12px;color:#59665d;margin:6px 0 0}.row{padding:16px 0;border-top:1px solid #e2e7df;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:10px}.row:first-child{padding-top:0;border-top:0}.row-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:7px}.row-actions button{font-size:12px;padding:6px 12px}.primary{background:#204d3c;color:#fff;border-color:#204d3c}.primary:hover{background:#173b2e}.downloads{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.downloads button{flex:1;white-space:nowrap}.status{font-size:13px;white-space:pre-line;overflow-wrap:anywhere;margin:16px 0 0;color:#526157}.status.error{color:#8d291e}details summary{cursor:pointer;font-size:14px;font-weight:650;min-height:44px;display:flex;align-items:center}details summary::before{content:'＋';margin-right:8px}details[open] summary::before{content:'−'}.import-box{margin:14px 0}.preview-pane{position:sticky;top:24px;align-self:start}.preview-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;color:#526157;font-size:12px}.live{display:flex;align-items:center;gap:6px}.live::before{content:'';width:7px;height:7px;border-radius:50%;background:#276446}.preview-shell{padding:8px;border:1px solid #cbd5cb;border-radius:28px;background:#fff;box-shadow:0 16px 60px #243b2910}iframe{display:block;border:0;width:100%;height:740px;max-height:80vh;border-radius:21px;background:#f4f5f0}.privacy{font-size:12px;color:#59665d;text-align:center;margin:16px 12px 0}.footnote{font-size:12px;color:#59665d;margin:14px 0 0}@media(max-width:850px){.workspace{grid-template-columns:minmax(0,1fr);max-width:620px;gap:32px;padding:28px 18px}.preview-pane{position:static}.preview-shell{max-width:406px;margin:auto}.row{grid-template-columns:minmax(0,1fr)}h1{font-size:32px}.topbar{padding:15px 20px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar"><span class="brand">Linkslate<span aria-hidden="true"> ↗</span></span><span class="badge">Your links. Your little space.</span></header>
+<main class="workspace">
+<section aria-labelledby="page-title">
+<p class="kicker">A home for everything you do</p>
+<h1 id="page-title">Make it yours.</h1>
+<p class="intro">A small page with a big hello. Add your links, pick a look, and take your site with you.</p>
+<div class="panel">
+<div class="section-title"><h2>A little about you</h2><span class="optional">01 / Profile</span></div>
+<div class="field"><label for="name">Your name</label><input id="name" autocomplete="off" value="Maya Chen" maxlength="300"></div>
+<div class="field"><label for="bio">Short bio <span class="optional">optional</span></label><textarea id="bio" rows="3">Designer, weekend baker, and collector of small adventures.</textarea></div>
+<div class="field"><label for="photo">Photo URL <span class="optional">optional</span></label><input id="photo" type="text" inputmode="url" placeholder="https://example.com/you.jpg"><p class="hint">Use a public https photo. Leave blank for your initial.</p></div>
+<div class="field"><label for="theme">Choose your look</label><select id="theme"></select></div>
+</div>
+<div class="panel">
+<div class="section-title"><h2>Your links</h2><span class="optional">02 / Explore</span></div>
+<div id="links"></div>
+<button id="add-link" type="button">＋ Add a link</button>
+<p class="hint">Web addresses, email (mailto:), and phone (tel:) links welcome.</p>
+</div>
+<details class="panel"><summary>Already have a links.txt?</summary>
+<p class="hint">Paste its contents below. Your name goes first, then a bio and one Label URL per line. A blank line ends the header. Lines beginning with # are comments; quote a label like "# My site" to keep the #.</p>
+<div class="import-box"><label for="import-text">Paste links.txt</label><textarea id="import-text" rows="7" spellcheck="false" placeholder="Alex Morgan&#10;A little about me&#10;theme: clean&#10;&#10;Website https://example.com"></textarea></div>
+<button id="import-button" type="button">Import text</button>
+</details>
+<div class="downloads"><button id="download-zip" class="primary" type="button">Download zip ↗</button><button id="download-text" type="button">Download links.txt</button></div>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<p class="footnote">Your zip includes index.html, links.txt, and _headers. Drag the zip onto Cloudflare Pages (Workers &amp; Pages, Create, Pages, Upload assets).</p>
+</section>
+<aside class="preview-pane" aria-label="Page preview">
+<div class="preview-label"><span>YOUR PAGE, LIVE</span><span class="live">Preview</span></div>
+<div class="preview-shell"><iframe id="preview" title="Your links page preview" sandbox=""></iframe></div>
+<p class="privacy">No account. No tracking. Nothing uploaded.<br>Your edits stay here until you download them.</p>
+</aside>
+</main>
+<script id="linkslate-core">
+const DEFAULT_THEME = 'clean';
+
+const THEMES = Object.freeze({
+  clean: {
+    label: 'Clean', background: '#f4f5f0', text: '#202d29', muted: '#52615a',
+    surface: '#ffffff', button: '#204d3c', buttonText: '#ffffff', accent: '#204d3c',
+    border: '#d8ded5', font: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    backdrop: '#f4f5f0', radius: '18px',
+  },
+  midnight: {
+    label: 'Midnight', background: '#111827', text: '#f5f3ff', muted: '#b9c1d6',
+    surface: '#1b2437', button: '#d7c9ff', buttonText: '#24183d', accent: '#d7c9ff',
+    border: '#3c4760', font: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    backdrop: 'radial-gradient(ellipse at top, #27324f, #111827 70%)', radius: '18px',
+  },
+  sunset: {
+    label: 'Sunset', background: '#fff2e7', text: '#482919', muted: '#77513e',
+    surface: '#fff8f1', button: '#883a27', buttonText: '#ffffff', accent: '#883a27',
+    border: '#e5bda4', font: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    backdrop: 'linear-gradient(150deg, #ffe3c2, #ffc9b9 55%, #edc8e3)', radius: '22px',
+  },
+  paper: {
+    label: 'Paper', background: '#eee9df', text: '#302c25', muted: '#665d4f',
+    surface: '#fffcf5', button: '#453c30', buttonText: '#fffcf5', accent: '#453c30',
+    border: '#cfc4b2', font: 'Georgia, "Times New Roman", serif',
+    backdrop: '#eee9df', radius: '4px',
+  },
+});
+
+const THEME_NAMES = Object.freeze(Object.keys(THEMES));
+
+
+class LinkslateError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'LinkslateError';
+  }
+}
+
+function safeUrl(value) {
+  const raw = String(value ?? '');
+  if (/[\u0000-\u001f\u007f]/u.test(raw)) return null;
+  const input = raw.trim();
+  if (!input || /[\s\u0000-\u001f\u007f]/u.test(input)) return null;
+  const explicit = /^([a-z][a-z\d+.-]*):/i.exec(input);
+  if (explicit && !['http', 'https', 'mailto', 'tel'].includes(explicit[1].toLowerCase())) return null;
+  if (explicit && /^(mailto|tel):/i.test(input)) {
+    return input.slice(explicit[0].length) && !/[<>"`]/.test(input) ? input : null;
+  }
+  const candidate = explicit ? input : input.includes('.') ? `https://${input}` : '';
+  if (!candidate) return null;
+  try {
+    const url = new URL(candidate);
+    return ['http:', 'https:'].includes(url.protocol) && url.hostname && !url.username && !url.password
+      ? candidate : null;
+  } catch {
+    return null;
+  }
+}
+
+function looksLikeUrl(value) {
+  return /^[a-z][a-z\d+.-]*:/i.test(value) || /^(?:[^\s/]+\.)[^\s]+/u.test(value);
+}
+
+function urlLabel(value) {
+  const url = new URL(value);
+  return url.hostname || url.pathname;
+}
+
+function quotedText(value) {
+  if (!value.startsWith('"')) return null;
+  try {
+    const decoded = JSON.parse(value);
+    return typeof decoded === 'string' ? decoded : null;
+  } catch {
+    return null;
+  }
+}
+
+function plainLabel(value) {
+  let end = value.length;
+  while (end > 0 && ('-:|–—'.includes(value[end - 1]) || /\s/u.test(value[end - 1]))) end--;
+  return value.slice(0, end);
+}
+
+function parse(text) {
+  const result = { name: '', bio: '', photo: '', theme: DEFAULT_THEME, links: [], warnings: [] };
+  let header = true;
+  let nameSeen = false;
+  const warn = (line, message) => result.warnings.push({ line, message });
+  const setPhoto = (value, number) => {
+    const photo = safeUrl(value);
+    if (photo && /^https:\/\//i.test(photo)) result.photo = photo;
+    else warn(number, 'photo must start with https:// and be a valid web address, so it was skipped.');
+  };
+  const lines = String(text).replace(/^\uFEFF/, '').split(/\r\n|\n|\r/);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    const number = i + 1;
+    if (!line) {
+      if (nameSeen) header = false;
+      continue;
+    }
+    if (line.startsWith('#')) continue;
+    const key = /^(name|bio|photo|theme):\s*(.+)$/isu.exec(line);
+    if (!nameSeen && !key) {
+      result.name = line;
+      nameSeen = true;
+      continue;
+    }
+    if (header && key) {
+      const field = key[1].toLowerCase();
+      const value = quotedText(key[2].trim()) ?? key[2].trim();
+      if (field === 'name') {
+        if (!nameSeen) result.name = value;
+        else warn(number, 'Your name is already set, so this extra name was skipped.');
+        nameSeen = true;
+      } else if (field === 'bio') {
+        result.bio = [result.bio, value].filter(Boolean).join(' ');
+      } else if (field === 'photo') {
+        setPhoto(value, number);
+      } else {
+        const theme = value.toLowerCase();
+        if (Object.hasOwn(THEMES, theme)) result.theme = theme;
+        else {
+          result.theme = DEFAULT_THEME;
+          warn(number, `Unknown theme "${value}". Choose ${THEME_NAMES.join(', ')}; using ${DEFAULT_THEME}.`);
+        }
+      }
+      continue;
+    }
+    if (key?.[1].toLowerCase() === 'theme') {
+      const theme = (quotedText(key[2].trim()) ?? key[2].trim()).toLowerCase();
+      if (Object.hasOwn(THEMES, theme)) {
+        result.theme = theme;
+        continue;
+      }
+    }
+    let split = line.length;
+    while (split > 0 && !/\s/u.test(line[split - 1])) split--;
+    const last = line.slice(split);
+    if (looksLikeUrl(last)) {
+      if (split > 0) header = false;
+      const url = safeUrl(last);
+      if (!url) {
+        warn(number, `The address "${last}" is not supported, so it was skipped. Use http, https, mailto or tel.`);
+        continue;
+      }
+      if (split === 0 && header && /^https?:/i.test(url)) {
+        setPhoto(url, number);
+        continue;
+      }
+      const rawLabel = line.slice(0, split).trim();
+      const label = (quotedText(rawLabel) ?? plainLabel(rawLabel)) || urlLabel(url);
+      result.links.push({ label, url });
+      header = false;
+    } else if (header) {
+      result.bio = [result.bio, line].filter(Boolean).join(' ');
+    } else {
+      warn(number, `"${line}" has no web address, so it was skipped. Add one like: ${line} https://example.com`);
+    }
+  }
+  if (!result.name.trim()) {
+    throw new LinkslateError('Add your name on the first content line. For example:\nAlex Morgan\nA little about me\nWebsite https://example.com');
+  }
+  if (!result.links.length) warn(0, 'No links yet. Your name and bio page is ready; add a link whenever you like.');
+  return result;
+}
+
+function format(model) {
+  const quote = value => JSON.stringify(String(value ?? ''));
+  const lines = [`name: ${quote(model.name)}`];
+  if (model.bio) lines.push(`bio: ${quote(model.bio)}`);
+  if (model.photo) lines.push(`photo: ${quote(model.photo)}`);
+  lines.push(`theme: ${quote(model.theme || DEFAULT_THEME)}`, '');
+  for (const link of model.links || []) {
+    if (link.label || link.url) lines.push(`${quote(link.label)} ${String(link.url ?? '').trim()}`.trim());
+  }
+  return `${lines.join('\n')}\n`;
+}
+
+
+const HEADERS = `/*
+  Content-Security-Policy: default-src 'none'; img-src https: data:; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+`;
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character]).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, '\uFFFD');
+}
+
+function render(model) {
+  const themeName = Object.hasOwn(THEMES, model.theme) ? model.theme : DEFAULT_THEME;
+  const theme = THEMES[themeName];
+  const name = escapeHtml(model.name);
+  const description = escapeHtml(model.bio || `Links from ${model.name}`);
+  const photoUrl = safeUrl(model.photo);
+  const photo = photoUrl && /^https:\/\//i.test(photoUrl) ? escapeHtml(photoUrl) : '';
+  const initial = Array.from(String(model.name).trim())[0]?.toLocaleUpperCase('en') || 'L';
+  const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="${theme.button}"/><text x="32" y="43" text-anchor="middle" font-family="system-ui,sans-serif" font-size="38" fill="${theme.buttonText}">${escapeHtml(initial)}</text></svg>`;
+  const favicon = escapeHtml(`data:image/svg+xml,${encodeURIComponent(icon)}`);
+  const links = (model.links || []).flatMap(link => {
+    const url = safeUrl(link.url);
+    if (!url) return [];
+    const external = /^https?:/i.test(url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return [`<li><a href="${escapeHtml(url)}"${external}><span>${escapeHtml(link.label)}</span><span class="arrow" aria-hidden="true">↗</span></a></li>`];
+  }).join('\n');
+  return `<!doctype html>
+<html lang="en" data-theme="${themeName}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${name} · Links</title>
+<meta name="description" content="${description}">
+<meta name="referrer" content="no-referrer">
+<meta property="og:title" content="${name} · Links">
+<meta property="og:description" content="${description}">
+<meta property="og:type" content="website">
+${photo ? `<meta property="og:image" content="${photo}">\n` : ''}<meta name="twitter:card" content="${photo ? 'summary_large_image' : 'summary'}">
+<link rel="icon" href="${favicon}">
+<style>
+:root{color-scheme:${themeName === 'midnight' ? 'dark' : 'light'};--background:${theme.background};--text:${theme.text};--muted:${theme.muted};--surface:${theme.surface};--button:${theme.button};--button-text:${theme.buttonText};--accent:${theme.accent};--border:${theme.border}}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--background)}
+body{margin:0;min-height:100vh;min-height:100svh;padding:48px 20px 28px;background:${theme.backdrop};color:var(--text);font-family:${theme.font};line-height:1.6;overflow-wrap:anywhere}
+main{max-width:480px;margin:0 auto;background:var(--surface);padding:32px 24px 24px;border:1px solid var(--border);border-radius:${theme.radius};box-shadow:0 20px 65px #0000000a}
+header{text-align:center;margin-bottom:30px}
+.portrait,.monogram{width:88px;height:88px;border-radius:50%;margin:0 auto 20px;display:block;object-fit:cover}
+.monogram{display:grid;place-items:center;background:var(--button);color:var(--button-text);font-size:34px;font-weight:600;line-height:1}
+.eyebrow{margin:0 0 10px;text-transform:uppercase;letter-spacing:.18em;font:600 10px/1.5 system-ui,sans-serif;color:var(--muted)}
+h1{font-size:clamp(26px,6vw,36px);letter-spacing:-.035em;line-height:1.2;margin:0 0 12px}
+.bio{margin:0 auto;color:var(--muted);font-size:15px;max-width:36ch;white-space:pre-line}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+a{min-height:52px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border:2px solid transparent;border-radius:${theme.radius};background:var(--button);color:var(--button-text);text-decoration:none;font:600 15px/1.5 ${theme.font};transition:transform .15s ease}
+a span:first-child{min-width:0;overflow-wrap:anywhere}
+a:hover{transform:translateY(-2px)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.arrow{flex-shrink:0;font-family:system-ui,sans-serif;font-size:18px}
+.empty{text-align:center;color:var(--muted);font-size:14px}
+footer{max-width:480px;text-align:center;margin:24px auto 0;color:var(--text);font-size:11px;letter-spacing:.04em}
+@media(min-width:600px){body{padding-top:72px}main{padding:40px 32px 32px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+${photo ? `<img class="portrait" src="${photo}" alt="${name}" width="88" height="88" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : `<div class="monogram" aria-hidden="true">${escapeHtml(initial)}</div>`}
+<p class="eyebrow">A little corner of the internet</p>
+<h1>${name}</h1>
+${model.bio ? `<p class="bio">${escapeHtml(model.bio)}</p>` : ''}
+</header>
+${links ? `<nav aria-label="My links"><ul>\n${links}\n</ul></nav>` : '<p class="empty">More to come. Check back soon.</p>'}
+</main>
+<footer>Made with Linkslate</footer>
+</body>
+</html>
+`;
+}
+
+const zipEncoder = new TextEncoder();
+
+function crc32(bytes) {
+  let crc = 0xffffffff;
+  for (const byte of bytes) {
+    crc ^= byte;
+    for (let bit = 0; bit < 8; bit++) crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function makeZip(files) {
+  if (files.length > 65535) throw new Error('Too many files for this zip.');
+  const prepared = files.map(file => {
+    if (!file.name || /(^\/|\\|(^|\/)\.\.($|\/)|\u0000)/u.test(file.name)) throw new Error('Use a safe relative zip filename.');
+    const name = zipEncoder.encode(file.name);
+    const bytes = typeof file.bytes === 'string' ? zipEncoder.encode(file.bytes) : new Uint8Array(file.bytes);
+    if (name.length > 65535 || bytes.length > 0xffffffff) throw new Error('This file is too large for this zip.');
+    return { name, bytes, crc: crc32(bytes) };
+  });
+  const localSize = prepared.reduce((size, file) => size + 30 + file.name.length + file.bytes.length, 0);
+  const centralSize = prepared.reduce((size, file) => size + 46 + file.name.length, 0);
+  if (localSize + centralSize + 22 > 0xffffffff) throw new Error('This zip is too large.');
+  const output = new Uint8Array(localSize + centralSize + 22);
+  const view = new DataView(output.buffer);
+  const u16 = (offset, value) => view.setUint16(offset, value, true);
+  const u32 = (offset, value) => view.setUint32(offset, value, true);
+  let offset = 0;
+  let central = localSize;
+  for (const file of prepared) {
+    u32(offset, 0x04034b50);
+    u16(offset + 4, 20);
+    u16(offset + 6, 0x0800);
+    u16(offset + 12, 0x0021);
+    u32(offset + 14, file.crc);
+    u32(offset + 18, file.bytes.length);
+    u32(offset + 22, file.bytes.length);
+    u16(offset + 26, file.name.length);
+    output.set(file.name, offset + 30);
+    output.set(file.bytes, offset + 30 + file.name.length);
+    u32(central, 0x02014b50);
+    u16(central + 4, 20);
+    u16(central + 6, 20);
+    u16(central + 8, 0x0800);
+    u16(central + 14, 0x0021);
+    u32(central + 16, file.crc);
+    u32(central + 20, file.bytes.length);
+    u32(central + 24, file.bytes.length);
+    u16(central + 28, file.name.length);
+    u32(central + 42, offset);
+    output.set(file.name, central + 46);
+    offset += 30 + file.name.length + file.bytes.length;
+    central += 46 + file.name.length;
+  }
+  u32(central, 0x06054b50);
+  u16(central + 8, prepared.length);
+  u16(central + 10, prepared.length);
+  u32(central + 12, centralSize);
+  u32(central + 16, localSize);
+  return output;
+}
+
+function buildZipBytes(input) {
+  const text = typeof input === 'string' ? input : format(input);
+  return makeZip([
+    { name: 'index.html', bytes: render(parse(text)) },
+    { name: 'links.txt', bytes: text },
+    { name: '_headers', bytes: HEADERS },
+  ]);
+}
+globalThis.LinkslateCore = { parse, render, makeZip, crc32, format, buildZipBytes, HEADERS, THEMES, THEME_NAMES, DEFAULT_THEME };
+globalThis.Linkslate = { buildZipBytes };
+</script>
+<script id="linkslate-editor">
+(() => {
+  const core = globalThis.LinkslateCore;
+  const byId = id => document.getElementById(id);
+  const fields = ['name', 'bio', 'photo', 'theme'];
+  let links = [
+    { label: 'My design work', url: 'https://example.com/maya' },
+    { label: 'Notes & little discoveries', url: 'https://example.com/maya/notes' },
+    { label: 'Say hello', url: 'https://example.com/maya/contact' },
+  ];
+  let current;
+  globalThis.Linkslate = {
+    buildZipBytes: model => {
+      if (!model && !current) throw new Error('Add your name before downloading your page.');
+      return core.buildZipBytes(model ?? current.text);
+    },
+  };
+  for (const name of core.THEME_NAMES) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = core.THEMES[name].label;
+    byId('theme').append(option);
+  }
+  function setStatus(message, error = false) {
+    byId('status').textContent = message;
+    byId('status').classList.toggle('error', error);
+  }
+  function update(extraWarnings = []) {
+    const model = Object.fromEntries(fields.map(field => [field, byId(field).value]));
+    const text = core.format({ ...model, links });
+    try {
+      const parsed = core.parse(text);
+      const html = core.render(parsed);
+      current = { text, html };
+      byId('preview').srcdoc = html;
+      byId('download-zip').disabled = false;
+      byId('download-text').disabled = false;
+      const warnings = [...extraWarnings, ...parsed.warnings];
+      setStatus(warnings.length ? warnings.map(warning => `${warning.line ? `Line ${warning.line}: ` : ''}${warning.message}`).join('\n') : 'Looking good. Your page is ready to download.');
+    } catch (error) {
+      current = undefined;
+      byId('preview').srcdoc = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Add your name</title></head><body><p>Add your name to start your page.</p></body></html>';
+      byId('download-zip').disabled = true;
+      byId('download-text').disabled = true;
+      setStatus(error.message, true);
+    }
+  }
+  function drawLinks(focusIndex) {
+    byId('links').replaceChildren();
+    links.forEach((link, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      for (const field of ['label', 'url']) {
+        const wrapper = document.createElement('div');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.id = `link-${index}-${field}`;
+        input.value = link[field];
+        input.dataset.field = field;
+        if (field === 'url') input.inputMode = 'url';
+        label.htmlFor = input.id;
+        label.textContent = `${field === 'label' ? 'Label' : 'Address'} ${index + 1}`;
+        input.addEventListener('input', () => { link[field] = input.value; update(); });
+        wrapper.append(label, input);
+        row.append(wrapper);
+      }
+      const actions = document.createElement('div');
+      actions.className = 'row-actions';
+      for (const [title, step] of [['Move up', -1], ['Move down', 1], ['Remove', 0]]) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = title;
+        button.setAttribute('aria-label', `${title} link ${index + 1}`);
+        button.disabled = step !== 0 && (index + step < 0 || index + step >= links.length);
+        button.addEventListener('click', () => {
+          if (step === 0) links.splice(index, 1);
+          else [links[index], links[index + step]] = [links[index + step], links[index]];
+          drawLinks(Math.min(links.length - 1, Math.max(0, index + step)));
+          update();
+        });
+        actions.append(button);
+      }
+      row.append(actions);
+      byId('links').append(row);
+    });
+    if (focusIndex >= 0) byId(`link-${focusIndex}-label`)?.focus();
+    else if (focusIndex === -1) byId('add-link').focus();
+  }
+  function download(bytes, name, type) {
+    const blob = new Blob([bytes], { type });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = name;
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  for (const field of fields) byId(field).addEventListener('input', () => update());
+  byId('add-link').addEventListener('click', () => {
+    links.push({ label: '', url: '' });
+    drawLinks(links.length - 1);
+    update();
+  });
+  byId('import-button').addEventListener('click', () => {
+    try {
+      const model = core.parse(byId('import-text').value);
+      for (const field of fields) byId(field).value = model[field];
+      links = model.links.map(link => ({ ...link }));
+      drawLinks();
+      update(model.warnings);
+    } catch (error) { setStatus(error.message, true); }
+  });
+  byId('download-text').addEventListener('click', () => {
+    if (current) download(current.text, 'links.txt', 'text/plain;charset=utf-8');
+  });
+  byId('download-zip').addEventListener('click', () => {
+    if (!current) return;
+    download(globalThis.Linkslate.buildZipBytes(), 'linkslate.zip', 'application/zip');
+  });
+  drawLinks();
+  update();
+})();
+</script>
+</body>
+</html>
